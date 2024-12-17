@@ -17,7 +17,7 @@ export default function Header() {
 
   return (
     <header className="flex items-center justify-between p-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 shadow-sm z-20">
-      <Logo size="sm" className="hidden" />
+      <Logo size="sm" className="md:hidden" />
       <div className="flex items-center space-x-4">
         <Button
           variant="ghost"

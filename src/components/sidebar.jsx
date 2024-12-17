@@ -12,6 +12,7 @@ import {
   Menu,
   Award,
   X,
+  Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -24,10 +25,11 @@ import { Logo } from "@/components/ui/logo";
 
 const navItems = [
   { name: "Home", href: "/", icon: Home },
-  { name: "Career Page", href: "/career", icon: Briefcase },
+  { name: "Career Guidance", href: "/career-guidance", icon: Briefcase },
   { name: "Early Careers", href: "/early-careers", icon: GraduationCap },
   { name: "Blogs", href: "/blogs", icon: BookOpen },
   { name: "TNP", href: "/tnp", icon: Award },
+  { name: "Alumni", href: "/alumni", icon: Users },
 ];
 
 const baseItems = ["E1", "E2", "E3", "E4"];
@@ -48,7 +50,9 @@ export default function Sidebar() {
         <Menu className="h-4 w-4" />
       </Button>
       <div
-        className={`fixed inset-y-0 left-0 z-40 w-64 bg-white dark:bg-gray-800 shadow-lg transform transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}
+        className={`fixed inset-y-0 left-0 z-40 w-64 bg-white dark:bg-gray-800 shadow-lg transform transition-transform duration-300 ease-in-out ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        } md:translate-x-0`}
       >
         <div className="flex items-center justify-between h-16 bg-gradient-to-r from-blue-400 to-indigo-500 dark:from-blue-600 dark:to-indigo-700 px-4">
           <div className="flex items-center">
