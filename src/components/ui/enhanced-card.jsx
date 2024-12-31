@@ -12,13 +12,13 @@ export function EnhancedCard({ title, description, icon, gradient, children }) {
       className={`${gradient} shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1`}
     >
       <CardHeader>
-        <CardTitle className="flex items-center text-gray-800 dark:text-gray-200">
+        <CardTitle className="flex items-center text-gray-800 dark:text-white">
           {icon}
           <span className="ml-2">{title}</span>
         </CardTitle>
         {description && <CardDescription>{description}</CardDescription>}
       </CardHeader>
-      <CardContent className="text-gray-700 dark:text-gray-300">
+      <CardContent className="text-gray-700 dark:text-white">
         {children}
       </CardContent>
     </Card>

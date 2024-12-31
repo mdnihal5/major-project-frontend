@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex h-screen overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-indigo-950">
+          <div className="flex h-screen overflow-hidden bg-cyan-50 dark:bg-slate-300">
             <Sidebar />
             <div className="flex flex-col flex-1 overflow-hidden ml-0 md:ml-64">
               <Header />

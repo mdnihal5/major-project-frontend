@@ -42,6 +42,7 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleFAQ = (index) => {
+    console.log(index);
     setOpenIndex(openIndex === index ? null : index);
   };
 
@@ -50,6 +51,7 @@ export function FAQ() {
       {faqs.map((faq, index) => (
         <EnhancedCard
           key={index}
+          
           title={
             <button
               className="w-full text-left focus:outline-none flex items-center justify-between"
@@ -57,13 +59,13 @@ export function FAQ() {
             >
               <span className="text-lg font-semibold">{faq.question}</span>
               {openIndex === index ? (
-                <ChevronUp className="w-5 h-5 text-gray-500" />
+                <ChevronUp className="w-5 h-5  ml-5 text-white" />
               ) : (
-                <ChevronDown className="w-5 h-5 text-gray-500" />
+                <ChevronDown className="w-5 h-5 ml-5  text-white" />
               )}
             </button>
           }
-          gradient="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700"
+          gradient={openIndex==index?`bg-indigo-200 dark:bg-slate-700 `:`bg-indigo-200 dark:bg-slate-700 h-20 `}
         >
           <div
             className={`mt-2 transition-all duration-300 ease-in-out overflow-hidden ${
