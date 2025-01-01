@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -37,8 +37,26 @@ const baseItems = ["E1", "E2", "E3", "E4"];
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const sidebarRef = useRef(null);
 
   const toggleSidebar = () => setIsOpen(!isOpen);
+
+  const handleClose = () => setIsOpen(false);
+
+  // Close sidebar when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
@@ -50,19 +68,20 @@ export default function Sidebar() {
         <Menu className="h-4 w-4" />
       </Button>
       <div
+        ref={sidebarRef}
         className={`fixed inset-y-0 left-0 z-40 w-64 bg-white dark:bg-gray-800 shadow-lg transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0`}
       >
-        <div className="flex items-center justify-between h-16  px-4 m-2">
-          <div className="flex items-center rounded-full border p-2">
+        <div className="flex items-center justify-between h-16 px-4 m-2">
+          <div className="flex items-center rounded-full border dark:border-white px-2">
             <Logo size="sm" />
-            <span className="ml-2 text-2xl font-bold ">RGUKT-B</span>
+            <span className="ml-2 text-xl font-bold ">RGUKT-B</span>
           </div>
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden text-white"
+            className="md:hidden text-black dark:text-white"
             onClick={toggleSidebar}
           >
             <X className="h-6 w-6" />
@@ -71,7 +90,7 @@ export default function Sidebar() {
         <nav className="h-full flex flex-col p-4">
           <div className="space-y-4">
             {navItems.map((item) => (
-              <Link key={item.name} href={item.href}>
+              <Link key={item.name} href={item.href} onClick={handleClose}>
                 <Button
                   variant={pathname === item.href ? "secondary" : "ghost"}
                   className="w-full justify-start text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900 transition-all duration-200"
@@ -98,6 +117,7 @@ export default function Sidebar() {
                     <Link
                       href={`/guidance/${base.toLowerCase()}`}
                       className="w-full"
+                      onClick={handleClose}
                     >
                       {base}
                     </Link>

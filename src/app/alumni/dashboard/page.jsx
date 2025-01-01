@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Pencil, Plus, Save, Trash2 } from "lucide-react";
 import { BlogEditor } from "@/components/blog-editor";
 import { Badge } from "@/components/ui/badge";
+import { useDispatch, useSelector } from "react-redux";
 
 const initialAlumniData = {
   id: "ALU001",
@@ -40,6 +41,7 @@ const initialAlumniData = {
 };
 
 export default function AlumniDashboard() {
+  const user=useSelector((state)=>state.user.data);
   const [isEditing, setIsEditing] = useState(false);
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -117,7 +119,7 @@ export default function AlumniDashboard() {
     });
   };
 
-  return (
+  return user?
     <div className="space-y-6">
       <h1 className="text-3xl font-bold">Alumni Dashboard</h1>
       <EnhancedCard
@@ -342,6 +344,6 @@ export default function AlumniDashboard() {
           )}
         </div>
       </EnhancedCard>
-    </div>
-  );
+    </div>:<h1 className="bg-card text-5xl flex  dark:bg-slate-700 text-black dark:text-white p-3 m-3 text-center rounded-lg shadow-md ">UNAUTHORIZED ACESS PLEASE CONTACT ADMIN.... </h1>;
+  
 }

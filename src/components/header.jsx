@@ -1,6 +1,6 @@
 "use client";
 
-import { MoonIcon, SunIcon, LogOut } from "lucide-react";
+import { MoonIcon, SunIcon, LogOut, User } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -11,10 +11,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Logo } from "@/components/ui/logo";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Header() {
   const { theme, setTheme } = useTheme();
-
+  const user=useSelector((state)=>state.user.data)
+  console.log(user)
   return (
     <header className="flex items-center justify-end p-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 shadow-sm z-20">
 <div className="block md:hidden mr-32"><Logo size="sm"/></div>
@@ -36,8 +38,9 @@ export default function Header() {
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuItem>
-              <LogOut className="mr-2 h-4 w-4" />
-              <span>Log out</span>
+              {user?<> <User className="mr-2 h-4 w-4" /><a href="/alumni/dashboard">dashboard</a>
+               </>:<><Button>Log out</Button>
+              <LogOut className="mr-2 h-4 w-4" /></>}
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
