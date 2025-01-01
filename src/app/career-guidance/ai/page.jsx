@@ -1,9 +1,19 @@
 "use client"
 import React, { useState } from 'react';
 import { ReactFlow } from '@xyflow/react';
-import Modal from 'react-modal'; // Importing the Modal component
 import '@xyflow/react/dist/style.css';
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogDescription
+} from "@/components/ui/dialog"
 
+import { resources } from './data';
+import { ArrowRight, CircleArrowOutUpRight } from 'lucide-react';
 const initialNodes = [
   { id: '1', position: { x: 690, y: 0 }, data: { label: 'Artificial Intelligence' } },
 
@@ -102,63 +112,59 @@ const initialEdges = [
   { id: 'e15-18', source: '15', target: '18' },
 
 ];
-
 export default function AIMap() {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [selectedNode, setSelectedNode] = useState(null);
-  
-    // Handle the node click to open the modal
-    const onNodeClick = (event, node) => {
-      setSelectedNode(node);
-      setModalIsOpen(true);
-    };
-  
-    // Close the modal
-    const closeModal = () => {
-      setModalIsOpen(false);
-      setSelectedNode(null);
-    };
+  const [selectedNode, setSelectedNode] = useState(null);
+
+  const onNodeClick = (event, node) => {
+    setSelectedNode(node);
+  };
+
+  const closeDialog = () => setSelectedNode(null);
+
   return (
-    <div className='w-full h-full'>
-      <div 
-        style={{ 
-          width: '100%', 
-          height: '100%', 
-          
-          overflow: 'auto', 
-          boxSizing: 'border-box',
-          backgroundColor: '#f9f9f9', 
-          border: '1px solid #ccc',
-          borderRadius: '8px'
+    <div className="text-black w-full h-full m-2 flex items-center justify-center flex-col">
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          overflow: "auto",
+          boxSizing: "border-box",
+          backgroundColor: "#f9f9f9",
+          border: "1px solid #ccc",
+          borderRadius: "8px",
         }}
       >
-        <ReactFlow 
-          nodes={initialNodes} 
-          edges={initialEdges} 
-          fitView 
-          onNodeClick={onNodeClick} // Handle node click
+        <ReactFlow
+          nodes={initialNodes}
+          edges={initialEdges}
+          fitView
+          onNodeClick={onNodeClick}
         />
       </div>
-      {/* <Modal
-              isOpen={modalIsOpen}
-              onRequestClose={closeModal}
-              contentLabel="Node Information"
-              style={{
-                content: {
-                  width: '300px',
-                  height: '200px',
-                  margin: 'auto',
-                  padding: '20px',
-                  textAlign: 'center',
-                  backgroundColor: '#fff',
-                  borderRadius: '8px',
-                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                },
-              }}
-            >
-              <h2>{selectedNode?.data.label}</h2>
-              <button onClick={closeModal}>Close</button>
-            </Modal> */}
+      <Dialog>
+      <DialogTrigger asChild>
+        <button className=" m-2 p-2 rounded-lg bg-red-300 text-black">View Resource</button>
+      </DialogTrigger>
+      <DialogContent className="max-h-[80%]  max-w-[80%] overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle>Resouces</DialogTitle>
+          <div  >
+            {resources.map((resource,index)=>{
+              
+              return <div key={index} className='bg-sky-100 my-3 rounded-lg p-2 bg-card shadow-md text-black '>
+                <h1 className='text-2xl'>{resource.title}</h1>
+                <h2>{resource.intro}</h2>
+                <div className='flex  items-center gap-3'>Documentation  {resource.documentationResources.map((r,i)=>{
+                  return <a key={i}  className="text-blue-500 flex" href={r.url}><CircleArrowOutUpRight> {i} </CircleArrowOutUpRight></a>
+                })}</div>
+              </div>
+            })}
+          </div>
+        </DialogHeader>
+      </DialogContent>
+    </Dialog>
+
+      
     </div>
   );
 }
