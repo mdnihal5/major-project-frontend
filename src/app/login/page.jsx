@@ -3,16 +3,15 @@ import React from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import {
-  IconBrandGithub,
-  IconBrandGoogle,
-  IconBrandOnlyfans,
-} from "@tabler/icons-react";
+import { signIn } from "@/app/store/slices/auth";
+import { useDispatch } from "react-redux";
+
 import { Button } from "@/components/ui/button";
 
 export function SignupFormDemo() {
   const handleSubmit = (e) => {
     e.preventDefault();
+    const dispatch=useDispatch();
     console.log("Form submitted");
   };
   return (
