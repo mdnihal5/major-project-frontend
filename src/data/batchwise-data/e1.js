@@ -1,4 +1,4 @@
-const programmingFundamentals = {
+export const programmingFundamentals = {
   title: "Programming Fundamentals",
   Languages: {
     C: {
@@ -68,7 +68,7 @@ const programmingFundamentals = {
   },
 };
 
-const coresubjects = {
+export const coresubjects = {
   "Programming for Problem Solving": {
     description:
       "This subject introduces the fundamentals of programming and problem-solving techniques using languages like C. It emphasizes algorithmic thinking and writing efficient code to solve real-world problems.",
@@ -91,7 +91,7 @@ const coresubjects = {
   },
 };
 
-const dsaSection = {
+export const dsaSection = {
   description:
     "Data Structures and Algorithms (DSA) are the backbone of computer science, enabling efficient problem-solving and software development. This section provides comprehensive resources to master DSA concepts.",
   resources: {

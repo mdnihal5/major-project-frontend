@@ -1,4 +1,4 @@
-const coresubjects = {
+export const coresubjects = {
   "Database Management Systems (DBMS)": {
     description:
       "This subject covers the design, development, and management of databases. It focuses on relational databases, SQL, normalization, and database transaction management.",
@@ -71,7 +71,7 @@ const coresubjects = {
   },
 };
 
-const cp = {
+export const cp = {
   blogs: [
     {
       title: "10 Must-Do Coding Problems for Beginners - GFG",

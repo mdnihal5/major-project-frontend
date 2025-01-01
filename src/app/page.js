@@ -4,71 +4,92 @@ import {
   ArrowRight,
   Zap,
   Users,
-  TrendingUp,
   Newspaper,
   Calendar,
   Book,
   Code,
-  Target,
-  Rocket,
-  Brain,
-  Shield,
+  Keyboard,
+  PartyPopper,
+  Rss,
+  Home as Hub,
+  PersonStanding,
+  Send,
+  Bot,
 } from "lucide-react";
 import { FAQ } from "@/components/faq";
 
 const clubs = [
   { name: "Coding Club", icon: Code },
-  { name: "Robotics Club", icon: Rocket },
-  { name: "AI/ML Club", icon: Brain },
-  { name: "Cybersecurity Club", icon: Shield },
+  { name: "CP Club", icon: Keyboard },
+  { name: "Cultural Club", icon: PartyPopper },
+  { name: "Publicity ", icon: Rss },
 ];
 
 const events = [
-  { name: "Annual Tech Fest", date: "October 15-17, 2023" },
-  { name: "Hackathon", date: "November 5-6, 2023" },
-  { name: "Industry Expert Talk Series", date: "Every Last Saturday" },
+  // { name: "Annual Tech Fest", date: "October 15-17, 2023" },
+  // { name: "Hackathon", date: "November 5-6, 2023" },
+  // { name: "Industry Expert Talk Series", date: "Every Last Saturday" },
+  {name:"will be updated soon....."}
 ];
 
 export default function Home() {
   return (
     <div className="space-y-12">
       <section className="mb-12 text-center">
-        <h1 className="text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
-          Welcome to RGUKT-B
+        <h1 className="text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 p-2">
+          Welcome to InsightHub RGUKT-B
         </h1>
-        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        <p className="text-xl text-gray-600 dark:white max-w-2xl mx-auto">
           Empowering minds, shaping futures. Discover a world of opportunities
-          and excellence at RGUKT-B.
+          and excellence at CSE.
         </p>
+        
       </section>
 
       <EnhancedCard
-        title="About Computer Science Engineering"
+        title="DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING"
         icon={<Code className="w-6 h-6" />}
-        gradient="bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-800 dark:to-indigo-800"
+        gradient="dark:bg-sky-950"
       >
-        <p className="mb-4">
+        <p className="mb-4 ">
           Our Computer Science Engineering program is designed to equip students
           with cutting-edge knowledge and skills in various aspects of
           computing, from software development to artificial intelligence and
           beyond.
         </p>
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="flex flex-col  gap-5 ">
           <div>
-            <h3 className="font-semibold mb-2">Vision</h3>
+            <h3 className="font-bold mb-2 text-center underline">Vision</h3>
             <p className="text-sm">
-              To be a center of excellence in computer science education and
-              research, producing innovative leaders who drive technological
-              advancements.
+            To be a globally recognized centre for excellence in the arena of Computer Science & Engineering education and research, catering to the current needs of industry and the society by producing globally competent and quality computer professionals
             </p>
-          </div>
+          </div> 
           <div>
-            <h3 className="font-semibold mb-2">Mission</h3>
-            <p className="text-sm">
-              To provide a comprehensive learning environment that fosters
-              critical thinking, problem-solving skills, and ethical practices
-              in the field of computer science.
-            </p>
+            <h3 className="font-bold  text-center underline">Mission</h3>
+            <ul className="space-y-2">
+            <li className="flex items-center justify-center">
+              <ArrowRight className="mr-2 h-5 w-5 text-green-500" />
+              To produce computer science graduates with sound subject knowledge, certified skill-sets and to foster leading edge in the fast changing field who can address current professional challenges
+            </li>
+            <div className="flex items-center">
+              <ArrowRight className="mr-2 h-8 w-8 text-green-500" />
+              To inculcate professional behavior and leadership abilities in the young minds to implant commitment as work culture for the progress of the nation, by producing computer science graduates with high levels of ethical, moral, human values and serving the society with highest regard to the mother land
+            </div>
+            <li className="flex items-center">
+              <ArrowRight className="mr-2 h-6 w-6 text-green-500" />
+              To enhance and strengthen department interaction with Multi National Companies to be abreast with growing technological advancements by facilitating the students to work with recent tools and technologies
+            </li>
+            <li className="flex items-center">
+              <ArrowRight className="mr-2 h-4 w-4 text-green-500" />
+              To provide practical exposure in the various domain areas and undertake research and development activities in those areas
+            </li>
+            <div className="flex">
+              <ArrowRight className="mr-2 h-4 w-4 text-green-500" />
+              To develop entrepreneurship and managerial abilities through world-class engineering and management education
+              </div>
+          </ul>
+              
+            
           </div>
         </div>
       </EnhancedCard>
@@ -143,45 +164,50 @@ export default function Home() {
             Academic Calendar
           </a>
           <a
-            href="#"
+            href="https://www.rgukt.ac.in/cse-faculty.html"
+            target="blank"
             className="flex items-center hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
           >
             <Users className="mr-2 h-4 w-4" />
-            Student Portal
+            Staff
           </a>
           <a
-            href="#"
+            href="https://hub.rgukt.ac.in/"
+            target="blank"
             className="flex items-center hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
           >
-            <Book className="mr-2 h-4 w-4" />
-            Faculty Directory
+            <Hub className="mr-2 h-4 w-4" />
+            Hub
           </a>
           <a
-            href="#"
+            href="http://tpcrt.rf.gd/?i=1"
+            target="blank"
             className="flex items-center hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
           >
-            <Book className="mr-2 h-4 w-4" />
-            Library Resources
+            <PersonStanding className="mr-2 h-4 w-4" />
+            Training & Placement Cell
           </a>
           <a
-            href="#"
+            href="https://t.me/rgukthub"
+            target="blank"
             className="flex items-center hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
           >
-            <ArrowRight className="mr-2 h-4 w-4" />
-            Campus Map
+            <Send className="mr-2 h-4 w-4" />
+            Notice Bot
           </a>
           <a
-            href="#"
+            href="https://t.me/+82bJNsedrp5lYTk9"
+            target="blank"
             className="flex items-center hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
           >
-            <ArrowRight className="mr-2 h-4 w-4" />
-            Contact Us
+            <Bot className="mr-2 h-4 w-4" />
+            Tnp Bot
           </a>
         </div>
       </EnhancedCard>
 
       <section className="space-y-4">
-        <h2 className="text-3xl font-bold mb-6 text-center">
+        <h2 className="text-3xl font-bold mb-6 text-center text-black">
           Frequently Asked Questions
         </h2>
         <FAQ />

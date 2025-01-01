@@ -41,6 +41,8 @@ body {
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --link-color: brown;
+  --link-color-hover: darkred;
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -75,6 +77,9 @@ body {
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --link-color: lightblue;
+    --link-color-hover: cyan;
+
   }
 }
 
@@ -85,4 +90,15 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+  a {
+    color: var(--link-color);
+    text-decoration: none; /* Optional: Remove underline */
+    transition: color 0.2s ease; /* Optional: Smooth color change */
+  }
+  
+  a:hover {
+    color: var(--link-color-hover);
+  }
+  
 }
+
