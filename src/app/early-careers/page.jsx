@@ -10,7 +10,7 @@ export default function EarlyCareersPage() {
       <div className="grid md:grid-cols-2 gap-4">
         {data.map((program, index) => (
           <Card
-                className={` shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 dark:bg-gray-900`}
+                className={` shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 dark:bg-slate-700`}
                 key={index}
               >
                 <CardHeader>
@@ -19,7 +19,7 @@ export default function EarlyCareersPage() {
                     <a className="flex" href={program.careerPage} target="blank"><span className=" text-2xl">{program.organization}</span><ArrowRight className="pt-2.5"/></a>
                   </CardTitle>
                   <CardDescription>
-                    <div className="ml-2 flex flex-col text-lg">
+                    <div className="ml-2 flex flex-col text-md dark:text-white">
                       <div className="flex items-center">
                         <h3 className="font-bold mr-4">Application : </h3>
                         <p>{program.opportunityTime.applications}</p>
@@ -31,7 +31,7 @@ export default function EarlyCareersPage() {
                     </div>
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="text-gray-700 ml-2 dark:text-gray-400 text-lg">
+                <CardContent className="text-gray-700 ml-2 dark:text-white text-md ">
                   Duration : {program.duration}
                 </CardContent>
               </Card>

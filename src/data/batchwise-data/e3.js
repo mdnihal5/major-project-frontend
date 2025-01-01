@@ -1,4 +1,4 @@
-const coresubjects = {
+export const coresubjects = {
   "Computer Networks": {
     description:
       "This subject delves into the concepts of computer networking, including protocols, network architecture, IP addressing, and routing. It provides an understanding of how data is transmitted over networks securely and efficiently. Topics include the OSI and TCP/IP models, network topologies, error detection and correction mechanisms, and emerging trends like software-defined networking and 5G.",
@@ -90,7 +90,7 @@ const coresubjects = {
   },
 };
 
-const cp = {
+export const cp = {
   blogs: [
     {
       title: "10 Must-Do Coding Problems for Beginners - GFG",

@@ -54,10 +54,10 @@ export default function Sidebar() {
           isOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0`}
       >
-        <div className="flex items-center justify-between h-16 bg-gradient-to-r from-blue-400 to-indigo-500 dark:from-blue-600 dark:to-indigo-700 px-4">
-          <div className="flex items-center">
+        <div className="flex items-center justify-between h-16  px-4 m-2">
+          <div className="flex items-center rounded-full border p-2">
             <Logo size="sm" />
-            <span className="ml-2 text-2xl font-bold text-white">RGUKT-B</span>
+            <span className="ml-2 text-2xl font-bold ">RGUKT-B</span>
           </div>
           <Button
             variant="ghost"
@@ -88,7 +88,7 @@ export default function Sidebar() {
                   className="w-full justify-start text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900 transition-all duration-200"
                 >
                   <GraduationCap className="mr-2 h-4 w-4" />
-                  Basewise Guidance
+                  Batch wise guidance
                   <ChevronDown className="ml-auto h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>

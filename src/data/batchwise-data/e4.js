@@ -1,4 +1,4 @@
-const interviewPreparation = [
+export const interviewPreparation = [
   {
     subject: "Object-Oriented Programming with Java (OOPS in Java)",
     description:
