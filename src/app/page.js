@@ -1,3 +1,4 @@
+"use client";
 import { EnhancedCard } from "@/components/ui/enhanced-card";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -29,10 +30,20 @@ const events = [
   // { name: "Annual Tech Fest", date: "October 15-17, 2023" },
   // { name: "Hackathon", date: "November 5-6, 2023" },
   // { name: "Industry Expert Talk Series", date: "Every Last Saturday" },
-  {name:"will be updated soon....."}
+  { name: "will be updated soon....." },
 ];
 
 export default function Home() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = e.target.photos.value;
+    console.log(data);
+  };
+  const handleResume = (e) => {
+    e.preventDefault();
+    const data = e.target.resume.value;
+    console.log(data);
+  };
   return (
     <div className="space-y-12">
       <section className="mb-12 text-center">
@@ -43,7 +54,6 @@ export default function Home() {
           Empowering minds, shaping futures. Discover a world of opportunities
           and excellence at CSE.
         </p>
-        
       </section>
 
       <EnhancedCard
@@ -61,35 +71,48 @@ export default function Home() {
           <div>
             <h3 className="font-bold mb-2 text-center underline">Vision</h3>
             <p className="text-sm">
-            To be a globally recognized centre for excellence in the arena of Computer Science & Engineering education and research, catering to the current needs of industry and the society by producing globally competent and quality computer professionals
+              To be a globally recognized centre for excellence in the arena of
+              Computer Science & Engineering education and research, catering to
+              the current needs of industry and the society by producing
+              globally competent and quality computer professionals
             </p>
-          </div> 
+          </div>
           <div>
             <h3 className="font-bold  text-center underline">Mission</h3>
             <ul className="space-y-2">
-            <li className="flex items-center justify-center">
-              <ArrowRight className="mr-2 h-5 w-5 text-green-500" />
-              To produce computer science graduates with sound subject knowledge, certified skill-sets and to foster leading edge in the fast changing field who can address current professional challenges
-            </li>
-            <div className="flex items-center">
-              <ArrowRight className="mr-2 h-8 w-8 text-green-500" />
-              To inculcate professional behavior and leadership abilities in the young minds to implant commitment as work culture for the progress of the nation, by producing computer science graduates with high levels of ethical, moral, human values and serving the society with highest regard to the mother land
-            </div>
-            <li className="flex items-center">
-              <ArrowRight className="mr-2 h-6 w-6 text-green-500" />
-              To enhance and strengthen department interaction with Multi National Companies to be abreast with growing technological advancements by facilitating the students to work with recent tools and technologies
-            </li>
-            <li className="flex items-center">
-              <ArrowRight className="mr-2 h-4 w-4 text-green-500" />
-              To provide practical exposure in the various domain areas and undertake research and development activities in those areas
-            </li>
-            <div className="flex">
-              <ArrowRight className="mr-2 h-4 w-4 text-green-500" />
-              To develop entrepreneurship and managerial abilities through world-class engineering and management education
+              <li className="flex items-center justify-center">
+                <ArrowRight className="mr-2 h-5 w-5 text-green-500" />
+                To produce computer science graduates with sound subject
+                knowledge, certified skill-sets and to foster leading edge in
+                the fast changing field who can address current professional
+                challenges
+              </li>
+              <div className="flex items-center">
+                <ArrowRight className="mr-2 h-8 w-8 text-green-500" />
+                To inculcate professional behavior and leadership abilities in
+                the young minds to implant commitment as work culture for the
+                progress of the nation, by producing computer science graduates
+                with high levels of ethical, moral, human values and serving the
+                society with highest regard to the mother land
               </div>
-          </ul>
-              
-            
+              <li className="flex items-center">
+                <ArrowRight className="mr-2 h-6 w-6 text-green-500" />
+                To enhance and strengthen department interaction with Multi
+                National Companies to be abreast with growing technological
+                advancements by facilitating the students to work with recent
+                tools and technologies
+              </li>
+              <li className="flex items-center">
+                <ArrowRight className="mr-2 h-4 w-4 text-green-500" />
+                To provide practical exposure in the various domain areas and
+                undertake research and development activities in those areas
+              </li>
+              <div className="flex">
+                <ArrowRight className="mr-2 h-4 w-4 text-green-500" />
+                To develop entrepreneurship and managerial abilities through
+                world-class engineering and management education
+              </div>
+            </ul>
           </div>
         </div>
       </EnhancedCard>
@@ -205,6 +228,40 @@ export default function Home() {
           </a>
         </div>
       </EnhancedCard>
+      <div className="w-full flex flex-col gap-3 h-36 bg-card bg-sky-100 dark:bg-slate-700 rounded-lg shadow-md p-3">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-2 justify-center"
+        >
+          <label htmlFor="photos" className="text-lg">
+            Upload Event Pictures
+          </label>
+          <input type="file" id="photos"></input>
+          <button
+            type="submit"
+            className="bg-red-100 rounded-lg shadow-md p-2 text-center"
+          >
+            submit
+          </button>
+        </form>
+      </div>
+      <div className="w-full flex flex-col gap-3 h-36 bg-card bg-sky-100 dark:bg-slate-700 rounded-lg shadow-md p-3">
+        <form
+          onSubmit={handleResume}
+          className="flex flex-col gap-2 justify-center"
+        >
+          <label htmlFor="photos" className="text-xl m-2">
+            Upload Your Resume Here for personalized assistance
+          </label>
+          <input type="file" id="resume"></input>
+          <button
+            type="submit"
+            className="bg-red-100 rounded-lg shadow-md p-2 text-center"
+          >
+            submit
+          </button>
+        </form>
+      </div>
 
       <section className="space-y-4">
         <h2 className="text-3xl font-bold mb-6 text-center text-black">

@@ -41,7 +41,7 @@ const initialAlumniData = {
 };
 
 export default function AlumniDashboard() {
-  const user=useSelector((state)=>state.user.data);
+  const user = useSelector((state) => state.user.data);
   const [isEditing, setIsEditing] = useState(false);
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -119,7 +119,7 @@ export default function AlumniDashboard() {
     });
   };
 
-  return user?
+  return user ? (
     <div className="space-y-6">
       <h1 className="text-3xl font-bold">Alumni Dashboard</h1>
       <EnhancedCard
@@ -344,6 +344,10 @@ export default function AlumniDashboard() {
           )}
         </div>
       </EnhancedCard>
-    </div>:<h1 className="bg-card text-5xl flex  dark:bg-slate-700 text-black dark:text-white p-3 m-3 text-center rounded-lg shadow-md ">UNAUTHORIZED ACESS PLEASE CONTACT ADMIN.... </h1>;
-  
+    </div>
+  ) : (
+    <h1 className="bg-card text-5xl flex  dark:bg-slate-700 text-black dark:text-white p-3 m-3 text-center rounded-lg shadow-md ">
+      UNAUTHORIZED ACESS PLEASE CONTACT ADMIN....{" "}
+    </h1>
+  );
 }
